@@ -1,11 +1,20 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="The Veganices | Doces Veganos">
+  <main class="min-h-screen bg-pink-50 p-8 text-center font-sans">
+    <h1 class="text-4xl font-bold text-pink-700">The Veganices</h1>
+    <p class="mt-2 text-lg text-gray-700">Doces veganos feitos com amor e sem ingredientes de origem animal.</p>
+    
+    <div class="mt-8">
+      <a 
+        href="https://wa.me/" 
+        target="_blank" 
+        class="inline-block rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 transition-colors"
+      >
+        Fazer Pedido no WhatsApp
+      </a>
+    </div>
+  </main>
 </Layout>
