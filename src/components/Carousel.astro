@@ -1,0 +1,92 @@
+<div id="custom-carousel" class="relative w-full max-w-3xl mx-auto py-4">
+  <!-- Wrapper com altura reduzida e bordas arredondadas -->
+  <div class="relative h-[280px] sm:h-[350px] md:h-[420px] overflow-hidden rounded-2xl shadow-md">
+    
+    <!-- Trilho deslizante -->
+    <div id="carousel-track" class="flex h-full w-full transition-transform duration-700 ease-in-out">
+      
+      <!-- Slide 1 -->
+      <div class="min-w-full h-full shrink-0">
+        <img src="/doces/bolos/IMG_0134.JPG" class="w-full h-full object-cover" alt="Bolo 1" />
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="min-w-full h-full shrink-0">
+        <img src="/doces/bolos/IMG_0210.JPG" class="w-full h-full object-cover" alt="Bolo 2" />
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="min-w-full h-full shrink-0">
+        <img src="/doces/bolos/IMG_0323.JPG" class="w-full h-full object-cover" alt="Bolo 3" />
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="min-w-full h-full shrink-0">
+        <img src="/doces/bolos/IMG_0266.JPG" class="w-full h-full object-cover" alt="Bolo 4" />
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="min-w-full h-full shrink-0">
+        <img src="/doces/bolos/flowers_1.JPG" class="w-full h-full object-cover" alt="Bolo 5" />
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Botão Anterior -->
+  <button id="prevBtn" type="button" aria-label="Foto anterior" class="absolute top-1/2 left-3 -translate-y-1/2 z-30 flex items-center justify-center p-2.5 rounded-full bg-[#456D57]/80 text-[#F6EEE3] hover:bg-[#456D57] transition-all shadow-md">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+  </button>
+
+  <!-- Botão Próximo -->
+  <button id="nextBtn" type="button" aria-label="Próxima foto" class="absolute top-1/2 right-3 -translate-y-1/2 z-30 flex items-center justify-center p-2.5 rounded-full bg-[#456D57]/80 text-[#F6EEE3] hover:bg-[#456D57] transition-all shadow-md">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+  </button>
+</div>
+
+<script>
+  const track = document.getElementById('carousel-track') as HTMLElement;
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const totalSlides = track?.children.length || 0;
+  let currentIndex = 0;
+  let timer: ReturnType<typeof setInterval>;
+
+  function updateCarousel(index: number) {
+    if (track) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel(currentIndex);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(nextSlide, 3000);
+  }
+
+  function stopAutoplay() {
+    if (timer) clearInterval(timer);
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    nextSlide();
+    startAutoplay();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    prevSlide();
+    startAutoplay();
+  });
+
+  startAutoplay();
+</script>

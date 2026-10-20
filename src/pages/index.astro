@@ -1,20 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Carrossel from '../components/Carousel.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="The Veganices | Doces Veganos">
-  <main class="min-h-screen bg-pink-50 p-8 text-center font-sans">
-    <h1 class="text-4xl font-bold text-pink-700">The Veganices</h1>
-    <p class="mt-2 text-lg text-gray-700">Doces veganos feitos com amor e sem ingredientes de origem animal.</p>
+  <!-- Container Principal com Imagem de Fundo -->
+  <div class="relative min-h-screen bg-[url('/pattern/rosa-10.png')] bg-repeat bg-[size:2000px]">
     
-    <div class="mt-8">
-      <a 
-        href="https://wa.me/" 
-        target="_blank" 
-        class="inline-block rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 transition-colors"
-      >
-        Fazer Pedido no WhatsApp
-      </a>
+    <!-- Overlay/Sobreposição: escurece ou suaviza o fundo para o texto ter boa leitura -->
+    <div class="absolute inset-0 bg-[#F6EEE3]/85 backdrop-blur-[1px]"></div>
+
+    <!-- Conteúdo do Site (com z-10 para ficar por cima do fundo) -->
+    <div class="relative z-10">
+      <Header />
+
+      <main>
+        <section id="bolos">
+          <Carrossel />
+        </section>
+      </main>
+
+      <Footer />
     </div>
-  </main>
+
+  </div>
 </Layout>
