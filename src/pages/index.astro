@@ -1,8 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import SubHeader from '../components/SubHeader.astro';
 import Carrossel from '../components/Carousel.astro';
 import Footer from '../components/Footer.astro';
+import AsChefs from '../components/AsChefs.astro';
+import Delivery from '../components/Delivery.astro';
+import Contato from '../components/Contato.astro';
 ---
 
 <Layout title="The Veganices | Doces Veganos">
@@ -15,10 +19,59 @@ import Footer from '../components/Footer.astro';
     <!-- Conteúdo do Site (com z-10 para ficar por cima do fundo) -->
     <div class="relative z-10">
       <Header />
+      <SubHeader />
 
       <main>
+
+      <!-- Bloco de Boas-Vindas  -->
+      <section class="w-full max-w-4xl mx-auto text-center pt-8 pb-4 px-4">
+
+        <!-- Título Principal -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#456D57] tracking-tight leading-tight">
+          Bem-vindo ao site do 
+        <img 
+          src="/logotipo/VERDE MINERAL/LOGO (29).png" 
+          alt="Logo The Veganices" 
+          class="inline-block h-[1.5em] md:h-[1.7em] w-auto align-middle mx-3 -mt-1"
+        />!
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="mt-4 text-base sm:text-lg md:text-xl font-light italic text-[#456D57]/90 max-w-2xl mx-auto leading-relaxed">
+         textotextotextotextotextotextotextotextotextotexto
+         textotextotextotextotextotextotextotextotextotextotextotextotextotexto
+        </p>
+
+        <!-- Divisor decorativo da marca -->
+        <div class="flex items-center justify-center gap-2 mt-6">
+          <span class="h-px w-12 bg-[#B7CEAE]"></span>
+          <span class="w-2 h-2 rounded-full bg-[#456D57]"></span>
+          <span class="h-px w-12 bg-[#B7CEAE]"></span>
+        </div>
+
+      </section>
+
         <section id="bolos">
           <Carrossel />
+        </section>
+
+        <!-- Divisor decorativo da marca -->
+        <div class="flex items-center justify-center gap-2 mt-6">
+          <span class="h-px w-12 bg-[#B7CEAE]"></span>
+          <span class="w-2 h-2 rounded-full bg-[#456D57]"></span>
+          <span class="h-px w-12 bg-[#B7CEAE]"></span>
+        </div>
+
+        <section id="as-chefs">
+          <AsChefs />
+        </section>
+
+        <section id="delivery">
+          <Delivery />
+        </section>
+
+        <section id="contato">
+          <Contato />
         </section>
       </main>
 
