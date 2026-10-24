@@ -2,50 +2,91 @@
 import theVeganicesLogo from '../../public/logotipo/BRANCO/LOGO (16).png';
 ---
 
-<header class="w-full bg-[#456D57] px-4 py-2.5">
-  <nav class="mx-auto flex items-center justify-center gap-3 md:gap-5 font-bold text-base md:text-lg text-[#FFFFFF]">
+<header class="w-full bg-[#456D57]/95 backdrop-blur-md border-b border-[#B7CEAE]/30 sticky top-0 z-50 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     
-    <!-- Link 1 -->
-    <a href="#bolos" class="transition-colors hover:text-[#FFD0CC] tracking-wider">
-      BOLOS
-    </a>
-
-    <!-- Divisor Vertical -->
-    <span class="h-5 w-[1px] bg-[#B7CEAE]/60"></span>
-
-    <!-- Link 2 -->
-    <a href="#as-chefs" class="transition-colors hover:text-[#FFD0CC] tracking-wider">
-      AS CHEFS
-    </a>
-
-    <!-- Divisor Vertical -->
-    <span class="h-5 w-[1px] bg-[#B7CEAE]/60"></span>
-
-    <!-- Logo Centralizada -->
-    <a href="/" class="px-2 transition-opacity hover:opacity-80">
+    <!-- Logo (Versão em Branco/Rosa para destacar no fundo verde) -->
+    <a href="#inicio" class="flex items-center">
       <img 
-        src={theVeganicesLogo.src} 
-        alt="The Veganices Homepage" 
-        class="w-32 md:w-40 h-auto" 
+        src="/logotipo/BRANCO/LOGO (16).png" 
+        alt="The Veganices Logo" 
+        class="h-10 sm:h-12 md:h-14 w-auto object-contain transition-all"
       />
     </a>
 
-    <!-- Divisor Vertical -->
-    <span class="h-5 w-[1px] bg-[#B7CEAE]/60"></span>
+    <!-- Menu Desktop (Textos em Branco Pérola com hover em Rosa Chá) -->
+    <nav class="hidden md:flex items-center gap-8 text-[#F6EEE3] font-medium text-sm">
+      <a href="#inicio" class="hover:text-[#FFD0CC] transition-colors">Início</a>
+      <a href="#bolos" class="hover:text-[#FFD0CC] transition-colors">Bolos</a>
+      <a href="#as-chefs" class="hover:text-[#FFD0CC] transition-colors">As Chefs</a>
+      <a href="#cardapio" class="hover:text-[#FFD0CC] transition-colors">Docinhos & Delivery</a>
+      <a 
+        href="https://wa.me/5521999999999" 
+        target="_blank" 
+        class="px-4 py-2 bg-[#FFD0CC] text-[#456D57] rounded-full text-xs font-bold hover:bg-[#FFD0CC]/90 transition-all shadow-sm"
+      >
+        Fazer Encomenda
+      </a>
+    </nav>
 
-    <!-- Link 3 -->
-    <a href="#delivery" class="transition-colors hover:text-[#FFD0CC] tracking-wider">
-      DELIVERY
-    </a>
+    <!-- Botão Hambúrguer (Apenas no Celular) -->
+    <button 
+      id="menu-btn" 
+      type="button"
+      class="md:hidden text-[#F6EEE3] p-2 rounded-lg hover:bg-[#355443] focus:outline-none"
+      aria-label="Abrir Menu"
+    >
+      <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
 
-    <!-- Divisor Vertical -->
-    <span class="h-5 w-[1px] bg-[#B7CEAE]/60"></span>
+  </div>
 
-    <!-- Link 4 -->
-    <a href="#contato" class="transition-colors hover:text-[#FFD0CC] tracking-wider">
-      CONTATO
-    </a>
-
-  </nav>
+  <!-- Menu Mobile Desdobrável (Fundo Verde Mineral) -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#456D57] border-t border-[#B7CEAE]/30 px-6 py-5 shadow-lg">
+    <nav class="flex flex-col space-y-4 text-[#F6EEE3] font-semibold text-base">
+      <a href="#inicio" class="mobile-link hover:text-[#FFD0CC] transition-colors py-1">Início</a>
+      <a href="#bolos" class="mobile-link hover:text-[#FFD0CC] transition-colors py-1">Bolos</a>
+      <a href="#as-chefs" class="mobile-link hover:text-[#FFD0CC] transition-colors py-1">As Chefs</a>
+      <a href="#cardapio" class="mobile-link hover:text-[#FFD0CC] transition-colors py-1">Docinhos & Delivery</a>
+      
+      <div class="pt-2 border-t border-[#B7CEAE]/30">
+        <a 
+          href="https://wa.me/5521999999999" 
+          target="_blank" 
+          class="block w-full py-3 bg-[#FFD0CC] text-[#456D57] text-center rounded-xl text-sm font-bold shadow-sm"
+        >
+          Fazer Encomenda no WhatsApp
+        </a>
+      </div>
+    </nav>
+  </div>
 </header>
 
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    mobileMenu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+  }
+
+  menuBtn?.addEventListener('click', toggleMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (!mobileMenu?.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    });
+  });
+</script>
