@@ -7,48 +7,7 @@ import CardProduto from '../components/CardProduto.astro';
 import Footer from '../components/Footer.astro';
 
 // Lista de bolos com a categoria associada
-const bolos = [
-  {
-    nome: "Red Velvet Afetivo",
-    descricao: "Massa aveludada com recheio cremoso e toque de baunilha natural.",
-    imagem: "/doces/bolos/redvelvet.jpg",
-    categoriaNome: "Festas",
-    categoriaSlug: "festas",
-    link: "https://wa.me/5521999999999?text=Quero%20o%20Red%20Velvet"
-  },
-  {
-    nome: "Bolo de Cenoura com Brigadeiro",
-    descricao: "Massa fofinha com generosa camada de brigadeiro 100% vegetal.",
-    imagem: "/doces/bolos/cenoura.jpg",
-    categoriaNome: "Caseirinhos",
-    categoriaSlug: "caseirinhos",
-    link: "https://wa.me/5521999999999?text=Quero%20o%20Bolo%20de%20Cenoura"
-  },
-  {
-    nome: "Bolo Floresta Negra",
-    descricao: "Massa intensa de chocolate com recheio de cerejas e chantilly leve.",
-    imagem: "/doces/bolos/florestanegra.jpg",
-    categoriaNome: "Festas",
-    categoriaSlug: "festas",
-    link: "https://wa.me/5521999999999?text=Quero%20o%20Floresta%20Negra"
-  },
-  {
-    nome: "Bolo de Fubá com Goiabada",
-    descricao: "Receita clássica de vó com pedaços macios de goiabada artesanal.",
-    imagem: "/doces/bolos/fuba.jpg",
-    categoriaNome: "Caseirinhos",
-    categoriaSlug: "caseirinhos",
-    link: "https://wa.me/5521999999999?text=Quero%20o%20Bolo%20de%20Fubá"
-  },
-  {
-    nome: "Especial de Páscoa / Natal",
-    descricao: "Edição limitada produzida exclusivamente em épocas comemorativas.",
-    imagem: "/doces/bolos/sazonal.jpg",
-    categoriaNome: "Sazonal",
-    categoriaSlug: "sazonais",
-    link: "https://wa.me/5521999999999?text=Quero%20o%20Bolo%20Sazonal"
-  }
-];
+import { bolos } from '../data/bolos';
 ---
 
 <Layout title="Bolos Autorais | The Veganices">

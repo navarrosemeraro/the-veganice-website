@@ -3,26 +3,137 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import SubHeader from '../components/SubHeader.astro';
 import PageBanner from '../components/PageBanner.astro';
+import CardProduto from '../components/CardProduto.astro';
 import Footer from '../components/Footer.astro';
+
+// Lista de doces dividida por categorias
+import { doces } from '../data/doces';
 
 ---
 
-<Layout title="Bolos Autorais | The Veganices">
+<Layout title="Nossos Docinhos & Delivery | The Veganices">
   <div class="relative min-h-screen bg-[url('/pattern/rosa-10.png')] bg-repeat bg-[size:2000px]">
     
-    <!-- Overlay/Sobreposição suave para o fundo -->
     <div class="absolute inset-0 bg-[#F6EEE3]/85 backdrop-blur-[1px]"></div>
 
-    <!-- Conteúdo Principal e Rodapé empilhados -->
     <div class="relative z-10 flex flex-col min-h-screen justify-between">
       <div>
         <Header />
         <SubHeader />
 
-        <PageBanner titulo="Docinhos e Delivery" breadcrumb="Nosso Serviço de Entrega" />
+        <!-- 1. Banner focado nos Doces -->
+        <PageBanner titulo="Nossos Docinhos" breadcrumb="Docinhos & Delivery" />
 
         <main class="max-w-6xl mx-auto px-4 py-8">
           
+          <!-- 2. Filtros Cuidadosos por Categoria -->
+          <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10">
+            <button 
+              class="filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all shadow-sm bg-[#456D57] text-[#F6EEE3]"
+              data-categoria="todos"
+            >
+              Todos os Doces
+            </button>
+
+            <button 
+              class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
+              data-categoria="tradicionais"
+            >
+              🍬 Brigadeiros & Tradicionais
+            </button>
+
+            <button 
+              class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
+              data-categoria="presentes"
+            >
+              🎁 Kits & Caixas Presente
+            </button>
+
+            <button 
+              class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
+              data-categoria="potes"
+            >
+              🍰 Sobremesas & Potes
+            </button>
+          </div>
+
+          <!-- 3. Vitrine de Doces (Grid de Cards) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
+            {doces.map(doce => (
+              <div class="doce-item transition-all duration-300" data-categoria={doce.categoriaSlug}>
+                <CardProduto 
+                  nome={doce.nome}
+                  descricao={doce.descricao}
+                  imagem={doce.imagem}
+                  categoria={doce.categoriaNome}
+                  linkPedido={doce.link}
+                  textoBotao="Pedir / Encomendar"
+                />
+              </div>
+            ))}
+          </div>
+
+          <!-- 4. Seção de Delivery Destacada no Final da Página -->
+          <section class="bg-[#F3E1CB] rounded-3xl p-8 md:p-12 border border-[#B7CEAE] shadow-sm text-[#456D57]">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+              <span class="px-3 py-1 bg-[#456D57] text-[#F6EEE3] text-xs font-bold uppercase tracking-wider rounded-full">
+                Pronta Entrega & Encomendas
+              </span>
+              <h2 class="text-2xl md:text-4xl font-bold mt-3 mb-2">
+                Como receber nossos doces?
+              </h2>
+              <p class="text-sm md:text-base font-light text-[#456D57]/90">
+                Oferecemos entregas diárias para consumo imediato e agendamentos para festas e eventos.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <!-- Card Delivery Imediato -->
+              <div class="bg-[#F6EEE3] rounded-2xl p-6 border border-[#B7CEAE]/50 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="text-2xl mb-1">🚀</div>
+                  <h3 class="text-lg font-bold text-[#456D57]">Delivery (Quinta a Domingo)</h3>
+                  <p class="text-xs font-light text-[#456D57]/80 leading-relaxed mt-1">
+                    Ideal para matar a vontade agora. Peça pelo nosso cardápio digital no Goomer ou pelo iFood.
+                  </p>
+                </div>
+                <div class="flex gap-2 pt-2">
+                  <a 
+                    href="https://goomer.app/theveganices" 
+                    target="_blank" 
+                    class="flex-1 py-2.5 bg-[#456D57] text-[#F6EEE3] text-xs font-bold text-center rounded-xl hover:bg-[#456D57]/90 transition-all"
+                  >
+                    Abrir Goomer
+                  </a>
+                  <a 
+                    href="https://www.ifood.com.br" 
+                    target="_blank" 
+                    class="flex-1 py-2.5 bg-[#EA1D2C] text-white text-xs font-bold text-center rounded-xl hover:bg-[#c81624] transition-all"
+                  >
+                    iFood
+                  </a>
+                </div>
+              </div>
+
+              <!-- Card Encomenda Agendada -->
+              <div class="bg-[#F6EEE3] rounded-2xl p-6 border border-[#B7CEAE]/50 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="text-2xl mb-1">🎉</div>
+                  <h3 class="text-lg font-bold text-[#456D57]">Encomendas para Eventos</h3>
+                  <p class="text-xs font-light text-[#456D57]/80 leading-relaxed mt-1">
+                    Caixas de docinhos em quantidade para festas, aniversários e presentes corporativos.
+                  </p>
+                </div>
+                <a 
+                  href="https://wa.me/552121478421?text=Olá!%20Gostaria%20de%20fazer%20uma%20encomenda%20de%20docinhos" 
+                  target="_blank" 
+                  class="w-full py-2.5 bg-[#FFD0CC] text-[#456D57] text-xs font-bold text-center rounded-xl hover:bg-[#FFD0CC]/80 transition-all"
+                >
+                  Falar no WhatsApp
+                </a>
+              </div>
+            </div>
+          </section>
 
         </main>
       </div>
@@ -31,3 +142,33 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
 </Layout>
+
+<!-- Script para Filtrar Doces -->
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const doceItems = document.querySelectorAll('.doce-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-[#456D57]', 'text-[#F6EEE3]');
+        b.classList.add('bg-[#F6EEE3]', 'text-[#456D57]');
+      });
+
+      btn.classList.remove('bg-[#F6EEE3]', 'text-[#456D57]');
+      btn.classList.add('bg-[#456D57]', 'text-[#F6EEE3]');
+
+      const categoriaSelecionada = btn.getAttribute('data-categoria');
+
+      doceItems.forEach(item => {
+        const itemCategoria = item.getAttribute('data-categoria');
+
+        if (categoriaSelecionada === 'todos' || itemCategoria === categoriaSelecionada) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
