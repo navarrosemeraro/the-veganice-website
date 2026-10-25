@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import SubHeader from '../components/SubHeader.astro';
+import PageBanner from '../components/PageBanner.astro';
+import Footer from '../components/Footer.astro';
+
+---
+
+<Layout title="Bolos Autorais | The Veganices">
+  <div class="relative min-h-screen bg-[url('/pattern/rosa-10.png')] bg-repeat bg-[size:2000px]">
+    
+    <!-- Overlay/Sobreposição suave para o fundo -->
+    <div class="absolute inset-0 bg-[#F6EEE3]/85 backdrop-blur-[1px]"></div>
+
+    <!-- Conteúdo Principal e Rodapé empilhados -->
+    <div class="relative z-10 flex flex-col min-h-screen justify-between">
+      <div>
+        <Header />
+        <SubHeader />
+
+        <PageBanner titulo="Docinhos e Delivery" breadcrumb="Nosso Serviço de Entrega" />
+
+        <main class="max-w-6xl mx-auto px-4 py-8">
+          
+
+        </main>
+      </div>
+
+      <Footer />
+    </div>
+  </div>
+</Layout>

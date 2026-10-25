@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import SubHeader from '../components/SubHeader.astro';
+import PageBanner from '../components/PageBanner.astro';
+import CardProduto from '../components/CardProduto.astro';
+import Footer from '../components/Footer.astro';
+
+// Lista de bolos com a categoria associada
+const bolos = [
+  {
+    nome: "Red Velvet Afetivo",
+    descricao: "Massa aveludada com recheio cremoso e toque de baunilha natural.",
+    imagem: "/doces/bolos/redvelvet.jpg",
+    categoriaNome: "Festas",
+    categoriaSlug: "festas",
+    link: "https://wa.me/5521999999999?text=Quero%20o%20Red%20Velvet"
+  },
+  {
+    nome: "Bolo de Cenoura com Brigadeiro",
+    descricao: "Massa fofinha com generosa camada de brigadeiro 100% vegetal.",
+    imagem: "/doces/bolos/cenoura.jpg",
+    categoriaNome: "Caseirinhos",
+    categoriaSlug: "caseirinhos",
+    link: "https://wa.me/5521999999999?text=Quero%20o%20Bolo%20de%20Cenoura"
+  },
+  {
+    nome: "Bolo Floresta Negra",
+    descricao: "Massa intensa de chocolate com recheio de cerejas e chantilly leve.",
+    imagem: "/doces/bolos/florestanegra.jpg",
+    categoriaNome: "Festas",
+    categoriaSlug: "festas",
+    link: "https://wa.me/5521999999999?text=Quero%20o%20Floresta%20Negra"
+  },
+  {
+    nome: "Bolo de Fubá com Goiabada",
+    descricao: "Receita clássica de vó com pedaços macios de goiabada artesanal.",
+    imagem: "/doces/bolos/fuba.jpg",
+    categoriaNome: "Caseirinhos",
+    categoriaSlug: "caseirinhos",
+    link: "https://wa.me/5521999999999?text=Quero%20o%20Bolo%20de%20Fubá"
+  },
+  {
+    nome: "Especial de Páscoa / Natal",
+    descricao: "Edição limitada produzida exclusivamente em épocas comemorativas.",
+    imagem: "/doces/bolos/sazonal.jpg",
+    categoriaNome: "Sazonal",
+    categoriaSlug: "sazonais",
+    link: "https://wa.me/5521999999999?text=Quero%20o%20Bolo%20Sazonal"
+  }
+];
+---
+
+<Layout title="Bolos Autorais | The Veganices">
+  <div class="relative min-h-screen bg-[url('/pattern/rosa-10.png')] bg-repeat bg-[size:2000px]">
+    
+    <!-- Overlay/Sobreposição suave para o fundo -->
+    <div class="absolute inset-0 bg-[#F6EEE3]/85 backdrop-blur-[1px]"></div>
+
+    <!-- Conteúdo Principal e Rodapé empilhados -->
+    <div class="relative z-10 flex flex-col min-h-screen justify-between">
+      <div>
+        <Header />
+        <SubHeader />
+
+        <PageBanner titulo="Bolos Autorais" breadcrumb="Bolos Autorais" />
+
+        <main class="max-w-6xl mx-auto px-4 py-8">
+          
+          <!-- Botões de Filtro Por Categoria -->
+          <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+            <button 
+              class="filter-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all shadow-sm bg-[#456D57] text-[#F6EEE3]"
+              data-categoria="todos"
+            >
+              Todos os Bolos
+            </button>
+
+            <button 
+              class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
+              data-categoria="festas"
+            >
+              🎉 Festas & Celebrações
+            </button>
+
+            <button 
+              class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
+              data-categoria="caseirinhos"
+            >
+              ☕ Caseirinhos & Café
+            </button>
+
+            <button 
+              class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
+              data-categoria="sazonais"
+            >
+              ✨ Épocas & Sazonais
+            </button>
+          </div>
+
+          <!-- Grid de Bolos -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {bolos.map(bolo => (
+              <div class="bolo-item transition-all duration-300" data-categoria={bolo.categoriaSlug}>
+                <CardProduto 
+                  nome={bolo.nome}
+                  descricao={bolo.descricao}
+                  imagem={bolo.imagem}
+                  categoria={bolo.categoriaNome}
+                  linkPedido={bolo.link}
+                />
+              </div>
+            ))}
+          </div>
+
+        </main>
+      </div>
+
+      <Footer />
+    </div>
+  </div>
+</Layout>
+
+<!-- Script para a alternância de filtros -->
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const boloItems = document.querySelectorAll('.bolo-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 1. Reseta o estilo de todos os botões
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-[#456D57]', 'text-[#F6EEE3]');
+        b.classList.add('bg-[#F6EEE3]', 'text-[#456D57]');
+      });
+
+      // 2. Aplica destaque ao botão ativo
+      btn.classList.remove('bg-[#F6EEE3]', 'text-[#456D57]');
+      btn.classList.add('bg-[#456D57]', 'text-[#F6EEE3]');
+
+      const categoriaSelecionada = btn.getAttribute('data-categoria');
+
+      // 3. Exibe/oculta os cards
+      boloItems.forEach(item => {
+        const itemCategoria = item.getAttribute('data-categoria');
+
+        if (categoriaSelecionada === 'todos' || itemCategoria === categoriaSelecionada) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
