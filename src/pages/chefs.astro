@@ -21,28 +21,29 @@ import Footer from '../components/Footer.astro';
           
           <!-- 1. História da Marca -->
           <section class="bg-[#F6EEE3] rounded-3xl p-8 md:p-12 border border-[#B7CEAE]/50 shadow-sm text-center max-w-3xl mx-auto">
-            <span class="inline-block px-4 py-1 bg-[#FFD0CC] text-[#456D57] text-xs font-bold uppercase tracking-widest rounded-full mb-4">
-              Como Tudo Começou
-            </span>
             <h2 class="text-3xl md:text-4xl font-bold text-[#456D57] mb-6">
-              Amor pela Confeitaria & Respeito aos Animais
+              Como Tudo Começou
             </h2>
             <div class="space-y-4 text-base md:text-lg font-light text-[#456D57]/90 leading-relaxed text-justify md:text-center">
               <p>
-                texto texto texto textotexto texto texto textotexto texto texto texto
+                A Luisa sempre foi apaixonada por confeitaria, desde pequena, 
+                quando cozinhava com as avós e compartilhava suas receitas no blog. <br>
+                Hoje, o nosso sonho vai ganhando forma a cada doce que chega à casa de nossos clientes.
               </p>
               <p>
-                texto texto texto textotexto texto texto textotexto texto texto texto
+                Queremos mostrar que o veganismo é sinônimo de sabor, e que a comida vegana
+                 pode ser ainda mais deliciosa e criativa do que imaginamos. Estamos só começando,
+                e o melhor ainda está por vir!
               </p>
             </div>
-            
-            <!-- Divisor decorativo -->
+          </section>
+
+          <!-- Divisor decorativo -->
             <div class="flex items-center justify-center gap-2 mt-8">
               <span class="h-px w-12 bg-[#B7CEAE]"></span>
               <span class="w-2.5 h-2.5 rounded-full bg-[#456D57]"></span>
               <span class="h-px w-12 bg-[#B7CEAE]"></span>
             </div>
-          </section>
 
           <!-- 2. Perfil das Chefs (Carol e Luisa) -->
           <section class="space-y-12">
@@ -59,7 +60,7 @@ import Footer from '../components/Footer.astro';
             <div class="bg-[#F3E1CB]/60 rounded-3xl p-6 md:p-8 border border-[#B7CEAE]/40 shadow-sm flex flex-col md:flex-row items-center gap-8">
               <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden shrink-0 bg-[#FFD0CC] border-2 border-[#456D57]/20 shadow-md">
                 <img 
-                  src="/chefs/carol.jpg" 
+                  src="/chefs/carol_pequena.JPG" 
                   alt="Chef Carol" 
                   class="w-full h-full object-cover"
                 />
@@ -68,12 +69,18 @@ import Footer from '../components/Footer.astro';
                 <span class="px-3 py-1 bg-[#456D57] text-[#F6EEE3] text-xs font-bold rounded-full uppercase tracking-wider">
                   Administradora
                 </span>
+                <br>
                 <h3 class="text-2xl md:text-3xl font-bold text-[#456D57]">Carol</h3>
                 <p class="text-sm md:text-base font-light text-[#456D57]/90 leading-relaxed">
-                  [Bio Carol].
+                  Por trás das ideias, dos planejamentos e de muitos dos sabores do The Veganices, está a Carol!
+                  Cofundadora da marca, é formada em Marketing pela FGV e estudante de Administração pela UERJ.
+                  Seu universo sempre foi o empreendedorismo, mas a confeitaria acabou despertando um lado que ela nem imaginava:
+                  a vontade de explorar a gastronomia, aprender novas técnicas e criar combinações de sabores diferentes.
+                  Hoje, cuida da gestão, do marketing e de toda a estratégia da marca, sempre com muitas ideias na cabeça e um
+                  carinho enorme por cada detalhe.
                 </p>
                 <p class="text-xs font-medium italic text-[#456D57]/70 pt-2">
-                  "Doce preferido: [Ex: Bolo Red Velvet]"
+                  "Doce preferido: Torta Cookie"
                 </p>
               </div>
             </div>
@@ -93,39 +100,20 @@ import Footer from '../components/Footer.astro';
                 </span>
                 <h3 class="text-2xl md:text-3xl font-bold text-[#456D57]">Luisa</h3>
                 <p class="text-sm md:text-base font-light text-[#456D57]/90 leading-relaxed">
-                  [Bio Luísa].
+                  É pelas mãos da Luisa que a maior parte das nossas delícias ganha vida! Cofundadora e chef
+                  confeiteira do The Veganices, sua paixão pela confeitaria a levou a buscar conhecimento e aperfeiçoamento
+                  na gastronomia plant-based. Formou-se chef vegana e também em confeitaria vegana pela Agridoce Gastronomia.
+                  Foi uma das 10 finalistas, em nível nacional, do primeiro Concurso de Pâtisserie Plant-Based da Le Cordon Bleu
+                  São Paulo, onde também conquistou uma vaga em um curso de Fundamentos de Pâtisserie Plant-Based.
+                  É quem está por trás das receitas, dos testes e de toda a magia que acontece na cozinha, sempre buscando
+                  transformar ingredientes em doces que surpreendem.
                 </p>
                 <p class="text-xs font-medium italic text-[#456D57]/70 pt-2">
-                  "Doce preferido: [Ex: Brigadeiro]"
+                  "Doce preferido: Browniess"
                 </p>
               </div>
             </div>
           </section>
-
-          <!-- 3. Chamada Final / CTA -->
-          <section class="bg-[#456D57] text-[#F6EEE3] rounded-3xl p-8 md:p-10 text-center space-y-4 shadow-md">
-            <h3 class="text-2xl md:text-3xl font-bold">
-              Quer experimentar nossas criações?
-            </h3>
-            <p class="text-sm md:text-base font-light opacity-90 max-w-xl mx-auto">
-              Confira nossos cardápios completos ou peça diretamente via WhatsApp para encomendar seu bolo personalizado.
-            </p>
-            <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
-              <a 
-                href="/bolos" 
-                class="px-6 py-3 bg-[#FFD0CC] text-[#456D57] font-bold rounded-xl text-sm hover:bg-[#FFD0CC]/90 transition-all shadow-sm"
-              >
-                Ver Bolos
-              </a>
-              <a 
-                href="/doces" 
-                class="px-6 py-3 bg-[#F6EEE3] text-[#456D57] font-bold rounded-xl text-sm hover:bg-[#F6EEE3]/90 transition-all shadow-sm"
-              >
-                Ver Docinhos
-              </a>
-            </div>
-          </section>
-
         </main>
       </div>
 

@@ -22,58 +22,11 @@ import { doces } from '../data/doces';
         <SubHeader />
 
         <!-- 1. Banner focado nos Doces -->
-        <PageBanner titulo="Nossos Docinhos" breadcrumb="Docinhos & Delivery" />
+        <PageBanner titulo="Delivery" breadcrumb="O que oferecemos" />
 
         <main class="max-w-6xl mx-auto px-4 py-8">
-          
-          <!-- 2. Filtros Cuidadosos por Categoria -->
-          <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10">
-            <button 
-              class="filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all shadow-sm bg-[#456D57] text-[#F6EEE3]"
-              data-categoria="todos"
-            >
-              Todos os Doces
-            </button>
 
-            <button 
-              class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
-              data-categoria="tradicionais"
-            >
-              🍬 Brigadeiros & Tradicionais
-            </button>
-
-            <button 
-              class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
-              data-categoria="presentes"
-            >
-              🎁 Kits & Caixas Presente
-            </button>
-
-            <button 
-              class="filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
-              data-categoria="potes"
-            >
-              🍰 Sobremesas & Potes
-            </button>
-          </div>
-
-          <!-- 3. Vitrine de Doces (Grid de Cards) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
-            {doces.map(doce => (
-              <div class="doce-item transition-all duration-300" data-categoria={doce.categoriaSlug}>
-                <CardProduto 
-                  nome={doce.nome}
-                  descricao={doce.descricao}
-                  imagem={doce.imagem}
-                  categoria={doce.categoriaNome}
-                  linkPedido={doce.link}
-                  textoBotao="Pedir / Encomendar"
-                />
-              </div>
-            ))}
-          </div>
-
-          <!-- 4. Seção de Delivery Destacada no Final da Página -->
+          <!-- 1. Seção de Delivery Destacada no Final da Página -->
           <section class="bg-[#F3E1CB] rounded-3xl p-8 md:p-12 border border-[#B7CEAE] shadow-sm text-[#456D57]">
             <div class="text-center max-w-2xl mx-auto mb-8">
               <span class="px-3 py-1 bg-[#456D57] text-[#F6EEE3] text-xs font-bold uppercase tracking-wider rounded-full">
