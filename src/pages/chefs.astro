@@ -15,26 +15,32 @@ import Footer from '../components/Footer.astro';
         <Header />
         <SubHeader />
 
-        <PageBanner titulo="As Chefs 🌟" breadcrumb="Nossa história" />
+        <PageBanner titulo="As Chefs 🌟" breadcrumb="Nossa história"/>
 
         <main class="max-w-5xl mx-auto px-4 py-12 space-y-16">
           
-          <!-- 1. História da Marca -->
-          <section class="bg-[#F6EEE3] rounded-3xl p-8 md:p-12 border border-[#B7CEAE]/50 shadow-sm text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#456D57] mb-6">
-              Como Tudo Começou
-            </h2>
-            <div class="space-y-4 text-base md:text-lg font-light text-[#456D57]/90 leading-relaxed text-justify md:text-center">
-              <p>
-                A Luisa sempre foi apaixonada por confeitaria, desde pequena, 
-                quando cozinhava com as avós e compartilhava suas receitas no blog. <br>
-                Hoje, o nosso sonho vai ganhando forma a cada doce que chega à casa de nossos clientes.
-              </p>
-              <p>
-                Queremos mostrar que o veganismo é sinônimo de sabor, e que a comida vegana
-                 pode ser ainda mais deliciosa e criativa do que imaginamos. Estamos só começando,
-                e o melhor ainda está por vir!
-              </p>
+          <!-- 1. História da Marca -->  
+          <section class="bg-[#456D57] text-[#F6EEE3] rounded-3xl p-8 md:p-12 border-[5px] border-[#B7CEAE]/40 shadow-md max-w-2xl mx-auto mt-6 mb-20 relative overflow-hidden">
+            
+            <!-- Detalhe orgânico sutil de fundo -->
+            <div class="absolute -top-10 -right-10 w-36 h-36 bg-[#B7CEAE]/15 rounded-full blur-xl pointer-events-none"></div>
+
+            <div class="relative z-10 text-center space-y-6">
+              <div>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#F6EEE3]">
+                  Como Tudo Começou
+                </h2>
+              </div>
+
+              <div class="space-y-4">
+                <p class="text-base md:text-lg font-light leading-relaxed text-[#F6EEE3]/90">
+                  A Luisa sempre foi apaixonada por confeitaria, desde pequena, quando cozinhava com as avós e compartilhava suas receitas no blog. Hoje, o nosso sonho vai ganhando forma a cada doce que chega à casa de nossos clientes.
+                </p>
+
+                <p class="italic text-[#FFD0CC] font-medium text-lg md:text-xl pt-4 border-t border-[#B7CEAE]/30 leading-relaxed">
+                  "Queremos mostrar que o veganismo é sinônimo de sabor, e que a comida vegana pode ser ainda mais deliciosa e criativa do que imaginamos."
+                </p>
+              </div>
             </div>
           </section>
 

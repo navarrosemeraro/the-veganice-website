@@ -22,7 +22,7 @@ import { bolos } from '../data/bolos';
         <Header />
         <SubHeader />
 
-        <PageBanner titulo="Bolos Autorais" breadcrumb="Bolos Autorais" />
+        <PageBanner titulo="Bolos e Doces Autorais" breadcrumb="Nossos bebês 🥹" />
 
         <main class="max-w-6xl mx-auto px-4 py-8">
           
@@ -32,21 +32,21 @@ import { bolos } from '../data/bolos';
               class="filter-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all shadow-sm bg-[#456D57] text-[#F6EEE3]"
               data-categoria="todos"
             >
-              Todos os Bolos
+              🍰 Bolos
             </button>
 
             <button 
               class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
-              data-categoria="festas"
+              data-categoria="outros"
             >
-              ☕ Outros Doces
+              ☕ Doces
             </button>
 
             <button 
               class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#F6EEE3] text-[#456D57] border border-[#B7CEAE] hover:bg-[#FFD0CC]/50 transition-all"
               data-categoria="sazonais"
             >
-              ✨ Épocas & Sazonais
+              ✨ Especiais & Sazonais
             </button>
           </div>
 
@@ -59,7 +59,6 @@ import { bolos } from '../data/bolos';
                   descricao={bolo.descricao}
                   imagem={bolo.imagem}
                   categoria={bolo.categoriaNome}
-                  linkPedido={bolo.link}
                 />
               </div>
             ))}
